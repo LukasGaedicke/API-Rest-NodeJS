@@ -3,8 +3,12 @@
 const express  = require('express');
 const router  = express.Router();
 const controller = require('../controllers/order-controller');
+const authService = require('../services/auth-service');
 
-router.get('/', controller.get);
-router.post('/', controller.post);
+
+//verifica antes de entrar, se for um TOKEN válido, ele continua
+router.get('/', authService.authorize, controller.get);
+router.post('/', authService.authorize, controller.post);
+
 
 module.exports = router;

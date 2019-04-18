@@ -111,7 +111,7 @@ exports.post = async(req, res, next) => {
   }
 };
 
-exports.get = async(req, res, next) => {
+  exports.get = async(req, res, next) => {
   try {
     var data  = await repositoryCustomer.get();
     res.status(200).send(data);
